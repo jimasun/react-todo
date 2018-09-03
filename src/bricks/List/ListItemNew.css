@@ -1,0 +1,28 @@
+.ListItemNew {
+  padding: 0 4px;
+}
+
+.ListItemNew input[type='text'] {
+  width: 244px;
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: darkseagreen;
+}
+
+.ListItemNew input[type='text']::placeholder {
+  color: #551560c4;
+  opacity: .5;
+}
+
+.ListItemNew input[type='submit'] {
+  color: darkseagreen;
+  position: absolute;
+  margin: -2px 0px;
+}
+
+.ListItemNew input[type='submit']:hover {
+  color: forestgreen;
+}

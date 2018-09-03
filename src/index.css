@@ -1,0 +1,7 @@
+html, body {
+  height: 100%;
+}
+
+html {
+  background-image: radial-gradient(#ff67004a 30%, #fff);
+}
