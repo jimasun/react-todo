@@ -10,7 +10,7 @@ const SortableList = SortableContainer(({items, onRemove, onChange}) =>
     <div>
       {items.map((value, index) => <ListItem
           id = {value.id}
-          key = {`item-${index}`}
+          key = {`item-${value.id}`}
           index = {index}
           text = {value.text}
           checked = {value.checked}
@@ -31,6 +31,7 @@ export default class List extends Component {
     this.onRemove = this.onRemove.bind(this)
     this.onChange = this.onChange.bind(this)
     this.onSortEnd = this.onSortEnd.bind(this)
+    this.onUpdate = this.onUpdate.bind(this)
   }
 
   onAdd({id: id, text: text}) {

@@ -3,39 +3,30 @@ import {SortableElement} from 'react-sortable-hoc'
 
 import './ListItem.css'
 
-const SortableListItem = SortableElement(({
-  id,
-  index,
-  text,
-  editing,
-  checked,
-  onChange,
-  onEdit,
-  onEditing,
-  onRemove}) => (
+const SortableListItem = SortableElement(props => (
     <li
-      className = 'ListItem'>
+      className = 'ListItem' >
       <input
-        id = {id}
+        id = {props.id}
         type = 'checkbox'
-        value = {text}
-        checked = {checked}
-        onChange = {onChange} />
+        value = {props.text}
+        checked = {props.checked}
+        onChange = {props.onChange} />
       <label
-        htmlFor = {id}>
-        {text} </label>
+        htmlFor = {props.id}>
+        {props.text} </label>
       <input
         type = 'text'
-        value = {text}
+        value = {props.text}
         className = 'editingInput'
-        onChange = {onEditing} />
+        onChange = {props.onEditing} />
       <input type = 'button'
-        onClick = {onRemove}
+        onClick = {props.onRemove}
         value = '&#x2718;' />
       <input type = 'button'
-        onClick = {onEdit}
-        className = {editing ? 'editing' : 'edit'}
-        value = {editing ? '\u2714' : '\u270E'} />
+        onClick = {props.onEdit}
+        className = {props.editing ? 'editing' : 'edit'}
+        value = {props.editing ? '\u2714' : '\u270E'} />
     </li>
 ))
 
@@ -101,15 +92,14 @@ export default class ListItem extends Component {
   render(){return(
     <SortableListItem
       id = {this.props.id}
-      key = {`item-${this.props.index}`}
       index = {this.props.index}
       text = {this.state.text}
-      editing = {this.state.editing}
       checked = {this.state.checked}
       onChange = {this.onChange}
+      onRemove = {this.onRemove}
       onEdit = {this.onEdit}
       onEditing = {this.onEditing}
-      onRemove = {this.onRemove}
-      disabled = {this.state.editing}/>
+      editing = {this.state.editing}
+      disabled = {this.state.editing} />
   )}
 }
